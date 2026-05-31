@@ -60,6 +60,42 @@ export default function About() {
               Business Unit.
             </motion.p>
 
+            {/* CV link */}
+            <motion.div variants={fadeUp} style={{ marginBottom: 32 }}>
+              <a
+                href="https://drive.google.com/file/d/1C5gG4Gai6XiYXAYZhmCxdN545m5sNRDh/view?usp=sharing"
+                target="_blank"
+                rel="noopener noreferrer"
+                style={{
+                  display: "inline-flex",
+                  alignItems: "center",
+                  gap: 8,
+                  fontFamily: "var(--font-mono)",
+                  fontSize: 13,
+                  fontWeight: 500,
+                  color: "var(--color-accent)",
+                  border: "1px solid rgba(34,211,238,0.35)",
+                  borderRadius: "var(--radius-sm)",
+                  padding: "9px 18px",
+                  background: "rgba(34,211,238,0.04)",
+                  transition: "all var(--dur-fast) var(--ease-standard)",
+                }}
+                onMouseEnter={e => {
+                  (e.currentTarget as HTMLAnchorElement).style.background = "rgba(34,211,238,0.12)";
+                  (e.currentTarget as HTMLAnchorElement).style.borderColor = "rgba(34,211,238,0.6)";
+                }}
+                onMouseLeave={e => {
+                  (e.currentTarget as HTMLAnchorElement).style.background = "rgba(34,211,238,0.04)";
+                  (e.currentTarget as HTMLAnchorElement).style.borderColor = "rgba(34,211,238,0.35)";
+                }}
+              >
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/>
+                </svg>
+                View my CV
+              </a>
+            </motion.div>
+
             {/* Stats grid */}
             <motion.div variants={staggerContainer} style={{
               display: "grid",

@@ -162,6 +162,32 @@ export default function Hero() {
           >
             View work
           </a>
+          <a
+            href="https://drive.google.com/file/d/1C5gG4Gai6XiYXAYZhmCxdN545m5sNRDh/view?usp=sharing"
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{
+              fontFamily: "var(--font-mono)",
+              fontSize: 13,
+              color: "var(--color-text-muted)",
+              display: "inline-flex",
+              alignItems: "center",
+              gap: 6,
+              padding: "11px 4px",
+              transition: "color var(--dur-fast) var(--ease-standard)",
+            }}
+            onMouseEnter={e => {
+              (e.currentTarget as HTMLAnchorElement).style.color = "var(--color-accent)";
+            }}
+            onMouseLeave={e => {
+              (e.currentTarget as HTMLAnchorElement).style.color = "var(--color-text-muted)";
+            }}
+          >
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/>
+            </svg>
+            CV
+          </a>
         </motion.div>
       </div>
     </section>
