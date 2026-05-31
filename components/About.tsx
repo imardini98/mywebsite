@@ -21,14 +21,12 @@ export default function About() {
   return (
     <section id="about" style={{ padding: "var(--pad-section) var(--pad-inline)" }}>
       <div style={{ maxWidth: "var(--max-content)", margin: "0 auto" }}>
-        <div style={{
+        <div className="about-grid" style={{
           display: "grid",
           gridTemplateColumns: "1.1fr 0.9fr",
           gap: 56,
           alignItems: "start",
-        }}
-          className="about-grid"
-        >
+        }}>
           {/* Left: bio */}
           <motion.div
             variants={staggerContainer}
@@ -148,8 +146,8 @@ export default function About() {
       </div>
 
       <style>{`
-        @media (max-width: 760px) {
-          .about-grid { grid-template-columns: 1fr !important; gap: 36px !important; }
+        @media (max-width: 767px) {
+          .about-grid { grid-template-columns: 1fr !important; gap: 32px !important; }
         }
         @keyframes blink { 50% { opacity: 0; } }
       `}</style>

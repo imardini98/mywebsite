@@ -152,6 +152,7 @@ export default function Contact() {
               whileInView="show"
               viewport={VIEWPORT_ONCE}
               onSubmit={handleSubmit}
+              className="contact-form-grid"
               style={{ display: "grid", gap: 18, marginTop: 36, textAlign: "left" }}
             >
               <FloatingField label="name" value={form.name} onChange={v => setForm(f => ({ ...f, name: v }))} />

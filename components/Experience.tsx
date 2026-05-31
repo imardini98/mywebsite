@@ -111,7 +111,7 @@ export default function Experience() {
         </motion.h2>
 
         {/* Timeline */}
-        <div style={{ position: "relative", paddingLeft: 34 }}>
+        <div className="timeline-wrap" style={{ position: "relative", paddingLeft: 34 }}>
           {/* Vertical line */}
           <div style={{
             position: "absolute", left: 5, top: 8, bottom: 8,
@@ -128,7 +128,7 @@ export default function Experience() {
               style={{ position: "relative", marginBottom: i < TIMELINE.length - 1 ? 40 : 0 }}
             >
               {/* Node */}
-              <span style={{
+              <span className="timeline-node" style={{
                 position: "absolute",
                 left: -34,
                 top: 5,
@@ -186,7 +186,7 @@ export default function Experience() {
             letterSpacing: "0.04em", color: "var(--color-accent)", margin: "0 0 18px",
           }}>// education</motion.p>
           <motion.h2 variants={fadeUp} style={{ marginBottom: 32 }}>Academic background</motion.h2>
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))", gap: 18 }}>
+          <div className="edu-grid" style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))", gap: 18 }}>
             {EDUCATION.map(e => (
               <motion.div key={e.degree} variants={fadeUp} style={{
                 padding: "24px",
@@ -214,7 +214,7 @@ export default function Experience() {
             fontFamily: "var(--font-mono)", fontSize: "var(--text-label)", fontWeight: 500,
             letterSpacing: "0.04em", color: "var(--color-accent)", margin: "0 0 18px",
           }}>// certifications</motion.p>
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(220px, 1fr))", gap: 14 }}>
+          <div className="cert-grid" style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(220px, 1fr))", gap: 14 }}>
             {CERTS.map(c => (
               <motion.div key={c.name} variants={fadeUp} style={{
                 padding: 16,

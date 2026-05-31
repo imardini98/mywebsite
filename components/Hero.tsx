@@ -10,6 +10,7 @@ export default function Hero() {
   return (
     <section
       id="top"
+      className="hero-section"
       style={{
         minHeight: "100vh",
         display: "flex",

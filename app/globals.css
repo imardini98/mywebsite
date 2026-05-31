@@ -100,3 +100,45 @@ a { color: inherit; text-decoration: none; }
     scroll-behavior: auto !important;
   }
 }
+
+/* ── Mobile-first responsive overrides ─────────────────────────────────── */
+@media (max-width: 767px) {
+  /* Hero */
+  .hero-section {
+    padding-top: 100px !important;
+    padding-bottom: 60px !important;
+    min-height: 100svh !important;
+  }
+
+  /* About two-column → single column */
+  .about-grid {
+    grid-template-columns: 1fr !important;
+    gap: 32px !important;
+  }
+
+  /* Projects: single column on small phones */
+  .proj-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* Experience timeline: reduce left padding */
+  .timeline-wrap {
+    padding-left: 24px !important;
+  }
+  .timeline-node {
+    left: -24px !important;
+  }
+
+  /* Education / certs: single column */
+  .edu-grid, .cert-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* Contact form grid: full width fields */
+  .contact-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* General section heading size */
+  h2 { font-size: 1.5rem !important; }
+}
