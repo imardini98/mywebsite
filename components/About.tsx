@@ -11,7 +11,7 @@ const stats = [
 ];
 
 const terminalLines = [
-  { prompt: "$", cmd: "cat stack.txt", out: "typescript · python · go · postgres" },
+  { prompt: "$", cmd: "cat stack.txt", out: "typescript · python · postgres · docker" },
   { prompt: "$", cmd: "echo $LOCATION", out: "Hamburg, DE / remote-friendly" },
   { prompt: "$", cmd: "cat interests.txt", out: "AI · cloud · devops · open-source" },
   { prompt: "$", cmd: "uptime", out: "7 years · builds: green · coffee: ∞" },
