@@ -3,7 +3,7 @@
 import { motion } from "framer-motion";
 import { fadeUp, staggerContainer, VIEWPORT_ONCE } from "@/lib/motion";
 import {
-  SiTypescript, SiPython, SiJavascript, SiGo, SiPostgresql, SiGnubash,
+  SiTypescript, SiPython, SiJavascript, SiPostgresql, SiGnubash,
   SiNextdotjs, SiReact, SiNestjs, SiFastapi, SiDjango, SiExpress, SiNodedotjs,
   SiPytorch, SiTensorflow, SiHuggingface, SiOpenai,
   SiGooglecloud, SiTerraform,
@@ -24,7 +24,6 @@ const SKILLS: { group: string; items: Skill[] }[] = [
       { name: "TypeScript", icon: SiTypescript },
       { name: "Python", icon: SiPython },
       { name: "JavaScript", icon: SiJavascript },
-      { name: "Go", icon: SiGo },
       { name: "SQL", icon: SiPostgresql },
       { name: "Bash", icon: SiGnubash },
     ],
