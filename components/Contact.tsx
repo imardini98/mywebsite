@@ -88,13 +88,25 @@ function IconMail() {
 
 export default function Contact() {
   const [form, setForm] = useState({ name: "", email: "", message: "" });
-  const [status, setStatus] = useState<"idle" | "sending" | "sent">("idle");
+  const [status, setStatus] = useState<"idle" | "sending" | "sent" | "error">("idle");
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setStatus("sending");
-    await new Promise(r => setTimeout(r, 1200));
-    setStatus("sent");
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(form),
+      });
+      if (res.ok) {
+        setStatus("sent");
+      } else {
+        setStatus("error");
+      }
+    } catch {
+      setStatus("error");
+    }
   };
 
   const iconBtnStyle = {
@@ -158,6 +170,11 @@ export default function Contact() {
               <FloatingField label="name" value={form.name} onChange={v => setForm(f => ({ ...f, name: v }))} />
               <FloatingField label="email" type="email" value={form.email} onChange={v => setForm(f => ({ ...f, email: v }))} />
               <FloatingField label="message" area value={form.message} onChange={v => setForm(f => ({ ...f, message: v }))} />
+              {status === "error" && (
+                <p style={{ fontFamily: "var(--font-mono)", fontSize: 13, color: "var(--color-danger)", margin: 0 }}>
+                  ✗ Something went wrong — try emailing me directly.
+                </p>
+              )}
               <button
                 type="submit"
                 disabled={status === "sending"}
