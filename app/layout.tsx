@@ -19,6 +19,13 @@ export const metadata: Metadata = {
   title: "Ivan Mardini — Software Architect & Full-Stack Developer",
   description:
     "Portfolio of Ivan Mardini — Software Architect and Full-Stack Developer based in Hamburg. 7 years building high-performance platforms with cloud infrastructure, DevOps, and AI integration.",
+  icons: {
+    icon: [
+      { url: "/favicon.svg", type: "image/svg+xml" },
+      { url: "/favicon.ico", sizes: "32x32" },
+    ],
+    apple: "/apple-touch-icon.png",
+  },
 };
 
 export default function RootLayout({
