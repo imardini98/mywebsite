@@ -18,16 +18,16 @@ export default function About() {
           </h2>
           <div className="space-y-4 text-gray-400 leading-relaxed">
             <p>
-              I&apos;m a Software Architect and Full-Stack Developer with 7 years
-              of experience building high-performance platforms. I specialize in
-              cloud infrastructure, DevOps, and AI integration — using tools like
-              Gemini, Claude, and PyTorch to push what&apos;s possible.
+              I&apos;m a fullstack developer passionate about building impactful
+              digital solutions that merge cutting-edge technology with intuitive
+              design. With over 7 years of experience, I&apos;ve built scalable,
+              efficient, and user-focused applications across diverse industries.
             </p>
             <p>
-              Currently at Verivox GmbH in Berlin, leading API and system design
-              for the Insurance Business Unit. I&apos;m passionate about leveraging
-              Generative AI for advanced system architecture and developing
-              secure, scalable applications.
+              I specialize in AI integration, cloud infrastructure, and DevOps —
+              applying machine learning and computer vision to solve complex
+              problems. Currently at Verivox GmbH in Berlin, leading API and
+              system design for the Insurance Business Unit.
             </p>
           </div>
 
