@@ -31,12 +31,12 @@ export default function Hero() {
         </h1>
 
         <p className="text-xl md:text-2xl text-gray-400 mb-4 font-light">
-          Full-Stack Developer &amp; Designer
+          Software Architect &amp; Full-Stack Developer
         </p>
 
         <p className="max-w-xl mx-auto text-gray-500 text-lg mb-12 leading-relaxed">
-          I build clean, performant web experiences — from pixel-perfect UIs to
-          scalable backends.
+          7 years building high-performance platforms — cloud infrastructure,
+          DevOps, and AI integration. Based in Hamburg, DE.
         </p>
 
         <div className="flex flex-col sm:flex-row gap-4 justify-center">

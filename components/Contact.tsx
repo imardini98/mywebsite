@@ -13,7 +13,6 @@ export default function Contact() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setStatus("sending");
-    // Replace with your own form handler (Resend, Formspree, etc.)
     await new Promise((r) => setTimeout(r, 1200));
     setStatus("sent");
   };
@@ -28,8 +27,11 @@ export default function Contact() {
           Let&apos;s work together
         </h2>
         <p className="text-gray-500 mb-12">
-          Have a project in mind or just want to say hi? My inbox is always
-          open.
+          Have a project in mind or just want to say hi? Reach me at{" "}
+          <a href="mailto:imardinig@gmail.com" className="text-indigo-400 hover:underline">
+            imardinig@gmail.com
+          </a>{" "}
+          or fill out the form below.
         </p>
 
         {status === "sent" ? (
@@ -94,21 +96,9 @@ export default function Contact() {
 
         {/* Social links */}
         <div className="flex items-center justify-center gap-6 mt-12">
-          {[
-            { label: "GitHub", href: "https://github.com/" },
-            { label: "LinkedIn", href: "https://linkedin.com/" },
-            { label: "Twitter / X", href: "https://x.com/" },
-          ].map((s) => (
-            <a
-              key={s.label}
-              href={s.href}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-sm text-gray-500 hover:text-indigo-400 transition-colors"
-            >
-              {s.label}
-            </a>
-          ))}
+          <a href="https://github.com/imardini98" target="_blank" rel="noopener noreferrer" className="text-sm text-gray-500 hover:text-indigo-400 transition-colors">GitHub</a>
+          <a href="https://www.linkedin.com/in/imardinig/" target="_blank" rel="noopener noreferrer" className="text-sm text-gray-500 hover:text-indigo-400 transition-colors">LinkedIn</a>
+          <a href="mailto:imardinig@gmail.com" className="text-sm text-gray-500 hover:text-indigo-400 transition-colors">Email</a>
         </div>
       </div>
     </section>

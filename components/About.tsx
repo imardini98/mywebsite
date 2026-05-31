@@ -1,7 +1,7 @@
 const skills = [
-  "TypeScript", "React", "Next.js", "Node.js",
-  "PostgreSQL", "Tailwind CSS", "Docker", "Git",
-  "REST APIs", "GraphQL", "AWS", "Figma",
+  "TypeScript", "React", "Next.js", "Nest.js", "Node.js", "FastAPI", "Django",
+  "Python", "PyTorch", "TensorFlow", "AWS", "GCP", "Azure", "Terraform",
+  "Kubernetes", "Docker", "PostgreSQL", "MongoDB", "Redis", "Figma",
 ];
 
 export default function About() {
@@ -14,18 +14,20 @@ export default function About() {
             About me
           </p>
           <h2 className="text-4xl font-bold text-white mb-6 leading-tight">
-            Crafting digital experiences that matter
+            Crafting scalable systems that matter
           </h2>
           <div className="space-y-4 text-gray-400 leading-relaxed">
             <p>
-              I&apos;m a full-stack developer passionate about building products
-              that are fast, accessible, and delightful to use. I care deeply
-              about code quality, clean architecture, and thoughtful UX.
+              I&apos;m a Software Architect and Full-Stack Developer with 7 years
+              of experience building high-performance platforms. I specialize in
+              cloud infrastructure, DevOps, and AI integration — using tools like
+              Gemini, Claude, and PyTorch to push what&apos;s possible.
             </p>
             <p>
-              When I&apos;m not coding, you&apos;ll find me exploring new
-              technologies, contributing to open source, or sketching out ideas
-              for my next side project.
+              Currently at Verivox GmbH in Berlin, leading API and system design
+              for the Insurance Business Unit. I&apos;m passionate about leveraging
+              Generative AI for advanced system architecture and developing
+              secure, scalable applications.
             </p>
           </div>
 
@@ -57,9 +59,9 @@ export default function About() {
           {/* Stats */}
           <div className="grid grid-cols-3 gap-6 mt-12">
             {[
-              { value: "3+", label: "Years exp." },
-              { value: "20+", label: "Projects" },
-              { value: "10+", label: "Happy clients" },
+              { value: "7+", label: "Years exp." },
+              { value: "10+", label: "Projects" },
+              { value: "3", label: "Continents" },
             ].map((s) => (
               <div key={s.label} className="text-center p-4 rounded-2xl bg-white/3 border border-white/5">
                 <div className="text-3xl font-bold text-white mb-1">{s.value}</div>

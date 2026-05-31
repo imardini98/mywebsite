@@ -1,36 +1,36 @@
 const projects = [
   {
-    title: "Project Alpha",
+    title: "Podask — Generative AI Podcast Platform",
     description:
-      "A full-stack SaaS platform with real-time collaboration, built with Next.js, Supabase, and Stripe payments.",
-    tags: ["Next.js", "Supabase", "Stripe", "TypeScript"],
-    link: "#",
+      "Winner of Best Use of Gemini at the Cursor AI-Hackathon Hamburg. Automated daily podcast generation from scientific papers using the Gemini API.",
+    tags: ["Gemini API", "Next.js", "Python", "AI"],
+    link: "https://podask.vercel.app",
     github: "#",
     featured: true,
   },
   {
-    title: "Dev Dashboard",
+    title: "Domo Accommodation — WhatsApp AI Chatbot",
     description:
-      "An analytics dashboard for developers tracking API usage, error rates, and latency across services.",
-    tags: ["React", "Node.js", "PostgreSQL", "Recharts"],
-    link: "#",
+      "Multi-agent AI architecture for room rental support automation. Custom AI evaluation framework optimizing token usage, handling 298 messages/day at peak.",
+    tags: ["Multi-agent AI", "WhatsApp API", "Next.js", "Claude"],
+    link: "https://domo-accommodation-website-imardini98s-projects.vercel.app",
     github: "#",
     featured: true,
   },
   {
-    title: "AI Writing Tool",
+    title: "AI Particle Detection System",
     description:
-      "A browser extension that uses the Claude API to help users write and improve text in any text field.",
-    tags: ["Chrome Extension", "Claude API", "TypeScript"],
+      "Built at Mertus Consulting — AI-powered particle detection achieving 90% accuracy improvement using YOLO and PyTorch for industrial defect detection.",
+    tags: ["PyTorch", "YOLO", "FastAPI", "AWS"],
     link: "#",
     github: "#",
     featured: false,
   },
   {
-    title: "E-commerce Store",
+    title: "Invoice Management System",
     description:
-      "A performant storefront with cart, checkout, and CMS-driven product pages.",
-    tags: ["Next.js", "Tailwind", "Shopify"],
+      "Automated invoice processing system built with Next.js and ML, reducing manual processing time by 85% for enterprise clients.",
+    tags: ["Next.js", "React", "FastAPI", "Docker"],
     link: "#",
     github: "#",
     featured: false,
@@ -64,8 +64,8 @@ export default function Projects() {
           Selected projects
         </h2>
         <p className="text-gray-500 mb-16 max-w-xl">
-          A handful of things I&apos;ve built — from solo side projects to
-          production apps.
+          A selection of things I&apos;ve built — from hackathon winners to
+          production AI systems.
         </p>
 
         <div className="grid md:grid-cols-2 gap-6">
@@ -83,7 +83,7 @@ export default function Projects() {
                   featured
                 </span>
               )}
-              <h3 className="text-lg font-semibold text-white mb-3 group-hover:text-indigo-300 transition-colors">
+              <h3 className="text-lg font-semibold text-white mb-3 group-hover:text-indigo-300 transition-colors pr-16">
                 {p.title}
               </h3>
               <p className="text-gray-400 text-sm leading-relaxed mb-5">
@@ -100,18 +100,26 @@ export default function Projects() {
                 ))}
               </div>
               <div className="flex items-center gap-4">
-                <a
-                  href={p.link}
-                  className="flex items-center gap-1.5 text-sm text-gray-400 hover:text-white transition-colors"
-                >
-                  Live demo <ArrowIcon />
-                </a>
-                <a
-                  href={p.github}
-                  className="flex items-center gap-1.5 text-sm text-gray-400 hover:text-white transition-colors"
-                >
-                  <GithubIcon /> GitHub
-                </a>
+                {p.link !== "#" && (
+                  <a
+                    href={p.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-1.5 text-sm text-gray-400 hover:text-white transition-colors"
+                  >
+                    Live demo <ArrowIcon />
+                  </a>
+                )}
+                {p.github !== "#" && (
+                  <a
+                    href={p.github}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-1.5 text-sm text-gray-400 hover:text-white transition-colors"
+                  >
+                    <GithubIcon /> GitHub
+                  </a>
+                )}
               </div>
             </div>
           ))}
