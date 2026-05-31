@@ -1,11 +1,23 @@
 export default function Footer() {
   return (
-    <footer className="py-8 border-t border-white/5">
-      <div className="max-w-6xl mx-auto px-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-gray-600">
-        <span>
-          Ivan<span className="text-indigo-400">.</span> — Built with Next.js &amp; Tailwind
-        </span>
-        <span>© {new Date().getFullYear()} Ivan Mardini. All rights reserved.</span>
+    <footer style={{
+      borderTop: "1px solid var(--color-bg-subtle)",
+      padding: "28px var(--pad-inline)",
+    }}>
+      <div style={{
+        maxWidth: "var(--max-content)",
+        margin: "0 auto",
+        display: "flex",
+        justifyContent: "space-between",
+        alignItems: "center",
+        flexWrap: "wrap",
+        gap: 12,
+        fontFamily: "var(--font-mono)",
+        fontSize: 12,
+        color: "var(--color-text-muted)",
+      }}>
+        <span>© {new Date().getFullYear()} — built with Next.js &amp; Tailwind</span>
+        <span>dev@ivanmardini<span style={{ color: "var(--color-accent)" }}>:~$</span></span>
       </div>
     </footer>
   );

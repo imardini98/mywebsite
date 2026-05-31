@@ -1,67 +1,180 @@
+"use client";
+
+import { motion } from "framer-motion";
+import { heroWord, staggerContainer, EASE, DUR } from "@/lib/motion";
+
+const words = ["Building", "reliable", "software,", "one", "commit", "at", "a", "time."];
+const accentWords = new Set(["reliable"]);
+
 export default function Hero() {
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/* Background glow */}
-      <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-indigo-600/20 rounded-full blur-[120px]" />
-        <div className="absolute top-2/3 left-1/4 w-[300px] h-[300px] bg-purple-600/10 rounded-full blur-[100px]" />
-      </div>
-
-      {/* Grid pattern */}
+    <section
+      id="top"
+      style={{
+        minHeight: "100vh",
+        display: "flex",
+        flexDirection: "column",
+        justifyContent: "center",
+        position: "relative",
+        padding: "120px var(--pad-inline) 80px",
+        maxWidth: "var(--max-content)",
+        margin: "0 auto",
+        width: "100%",
+      }}
+    >
+      {/* Dot grid background */}
       <div
-        className="absolute inset-0 opacity-[0.03]"
+        aria-hidden
         style={{
-          backgroundImage:
-            "linear-gradient(#6366f1 1px, transparent 1px), linear-gradient(90deg, #6366f1 1px, transparent 1px)",
-          backgroundSize: "60px 60px",
+          position: "fixed",
+          inset: 0,
+          backgroundImage: "radial-gradient(rgba(148,163,184,0.18) 1px, transparent 1px)",
+          backgroundSize: "28px 28px",
+          WebkitMaskImage: "radial-gradient(ellipse 70% 60% at 50% 40%, #000 30%, transparent 75%)",
+          maskImage: "radial-gradient(ellipse 70% 60% at 50% 40%, #000 30%, transparent 75%)",
+          pointerEvents: "none",
+          zIndex: 0,
         }}
       />
 
-      <div className="relative z-10 max-w-6xl mx-auto px-6 text-center">
-        <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-indigo-500/30 bg-indigo-500/10 text-indigo-300 text-sm mb-8">
-          <span className="w-1.5 h-1.5 rounded-full bg-indigo-400 animate-pulse" />
-          Available for opportunities
-        </div>
+      <div style={{ position: "relative", zIndex: 1 }}>
+        {/* Terminal prompt */}
+        <motion.p
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: DUR.base, ease: EASE }}
+          style={{
+            fontFamily: "var(--font-mono)",
+            fontSize: 13,
+            color: "var(--color-text-muted)",
+            margin: "0 0 24px",
+          }}
+        >
+          $ whoami<BlinkCursor />
+        </motion.p>
 
-        <h1 className="text-5xl md:text-7xl font-bold text-white mb-6 leading-tight tracking-tight">
-          Hi, I&apos;m{" "}
-          <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-purple-400">
-            Ivan Mardini
-          </span>
-        </h1>
+        {/* Animated headline */}
+        <motion.h1
+          variants={staggerContainer}
+          initial="hidden"
+          animate="show"
+          style={{
+            fontFamily: "var(--font-mono)",
+            fontSize: "var(--text-hero)",
+            fontWeight: 700,
+            lineHeight: 1.08,
+            letterSpacing: "-0.02em",
+            color: "var(--color-text-primary)",
+            maxWidth: "16ch",
+            margin: 0,
+          }}
+        >
+          {words.map((word, i) => (
+            <motion.span
+              key={i}
+              variants={heroWord}
+              style={{
+                display: "inline-block",
+                marginRight: "0.25em",
+                color: accentWords.has(word) ? "var(--color-accent)" : undefined,
+              }}
+            >
+              {word}
+            </motion.span>
+          ))}
+        </motion.h1>
 
-        <p className="text-xl md:text-2xl text-gray-400 mb-4 font-light">
-          Software Architect &amp; Full-Stack Developer
-        </p>
+        {/* Subtitle */}
+        <motion.p
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: DUR.base, delay: 0.6, ease: EASE }}
+          style={{
+            fontSize: "var(--text-body-lg)",
+            maxWidth: "52ch",
+            margin: "28px 0 0",
+            lineHeight: 1.7,
+            color: "var(--color-text-secondary)",
+          }}
+        >
+          Software Architect &amp; Full-Stack Developer. 7 years building
+          high-performance platforms — cloud infrastructure, DevOps, and AI
+          integration. Based in Hamburg, DE.
+        </motion.p>
 
-        <p className="max-w-xl mx-auto text-gray-500 text-lg mb-12 leading-relaxed">
-          7 years building high-performance platforms — cloud infrastructure,
-          DevOps, and AI integration. Based in Hamburg, DE.
-        </p>
-
-        <div className="flex flex-col sm:flex-row gap-4 justify-center">
-          <a
-            href="#projects"
-            className="px-8 py-3.5 rounded-full bg-indigo-600 hover:bg-indigo-500 text-white font-medium transition-all hover:shadow-lg hover:shadow-indigo-500/25"
-          >
-            View my work
-          </a>
+        {/* CTAs */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: DUR.base, delay: 0.75, ease: EASE }}
+          style={{ display: "flex", gap: 14, marginTop: 40, flexWrap: "wrap" }}
+        >
           <a
             href="#contact"
-            className="px-8 py-3.5 rounded-full border border-white/10 hover:border-white/20 text-gray-300 hover:text-white font-medium transition-all hover:bg-white/5"
+            style={{
+              fontFamily: "var(--font-sans)",
+              fontSize: 15,
+              fontWeight: 500,
+              background: "var(--color-accent)",
+              color: "#04141a",
+              border: "1px solid transparent",
+              borderRadius: "var(--radius-sm)",
+              padding: "11px 24px",
+              cursor: "pointer",
+              display: "inline-flex",
+              alignItems: "center",
+              transition: "all var(--dur-fast) var(--ease-standard)",
+            }}
+            onMouseEnter={e => {
+              (e.currentTarget as HTMLAnchorElement).style.filter = "brightness(1.08)";
+              (e.currentTarget as HTMLAnchorElement).style.boxShadow = "0 0 24px rgba(34,211,238,0.45)";
+            }}
+            onMouseLeave={e => {
+              (e.currentTarget as HTMLAnchorElement).style.filter = "";
+              (e.currentTarget as HTMLAnchorElement).style.boxShadow = "";
+            }}
           >
             Get in touch
           </a>
-        </div>
-
-        {/* Scroll indicator */}
-        <div className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-gray-600 text-xs animate-bounce">
-          <span>scroll</span>
-          <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-            <path d="M8 3v10M3 9l5 5 5-5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-          </svg>
-        </div>
+          <a
+            href="#projects"
+            style={{
+              fontFamily: "var(--font-sans)",
+              fontSize: 15,
+              fontWeight: 500,
+              background: "transparent",
+              color: "var(--color-accent)",
+              border: "1px solid var(--color-accent)",
+              borderRadius: "var(--radius-sm)",
+              padding: "11px 24px",
+              cursor: "pointer",
+              display: "inline-flex",
+              alignItems: "center",
+              transition: "all var(--dur-fast) var(--ease-standard)",
+            }}
+            onMouseEnter={e => {
+              (e.currentTarget as HTMLAnchorElement).style.background = "var(--color-accent-glow)";
+            }}
+            onMouseLeave={e => {
+              (e.currentTarget as HTMLAnchorElement).style.background = "transparent";
+            }}
+          >
+            View work
+          </a>
+        </motion.div>
       </div>
     </section>
+  );
+}
+
+function BlinkCursor() {
+  return (
+    <span style={{
+      color: "var(--color-accent)",
+      animation: "blink 1.1s steps(1) infinite",
+    }}>
+      ▋
+      <style>{`@keyframes blink { 50% { opacity: 0; } }`}</style>
+    </span>
   );
 }
