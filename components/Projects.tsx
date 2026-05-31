@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { fadeUp, staggerContainer, VIEWPORT_ONCE } from "@/lib/motion";
+import Lightbox from "@/components/Lightbox";
 
 const PROJECTS = [
   {
@@ -24,6 +25,7 @@ const PROJECTS = [
     link: "https://domo-accommodation-website-imardini98s-projects.vercel.app",
     github: "#",
     featured: false,
+    gallery: Array.from({ length: 13 }, (_, i) => `/projects/domo/screenshot-${String(i + 1).padStart(2, "0")}.png`),
   },
   {
     id: "particle",
@@ -49,6 +51,8 @@ const PROJECTS = [
 
 const ALL_TAGS = ["all", ...Array.from(new Set(PROJECTS.flatMap(p => p.tags)))];
 
+type LightboxState = { images: string[]; index: number; title: string } | null;
+
 function IconGitHub({ size = 16 }: { size?: number }) {
   return (
     <svg width={size} height={size} viewBox="0 0 24 24" fill="currentColor">
@@ -67,6 +71,7 @@ function IconExternal({ size = 16 }: { size?: number }) {
 
 export default function Projects() {
   const [filter, setFilter] = useState("all");
+  const [lightbox, setLightbox] = useState<LightboxState>(null);
   const filtered = PROJECTS.filter(p => filter === "all" || p.tags.includes(filter));
 
   return (
@@ -224,7 +229,7 @@ export default function Projects() {
                 transition: "all 0.35s var(--ease-standard)",
               }}>
                 <p style={{ fontSize: 14, color: "#cbd5e1", lineHeight: 1.6, margin: 0 }}>{p.desc}</p>
-                <div style={{ display: "flex", gap: 18, marginTop: 14, fontFamily: "var(--font-mono)", fontSize: 13, color: "var(--color-accent)" }}>
+                <div style={{ display: "flex", gap: 18, marginTop: 14, fontFamily: "var(--font-mono)", fontSize: 13, color: "var(--color-accent)", flexWrap: "wrap" }}>
                   {p.link !== "#" && (
                     <a href={p.link} target="_blank" rel="noopener noreferrer"
                       style={{ display: "inline-flex", alignItems: "center", gap: 5 }}
@@ -239,12 +244,39 @@ export default function Projects() {
                       <IconGitHub size={14} /> GitHub
                     </a>
                   )}
+                  {"gallery" in p && p.gallery && (
+                    <button
+                      onClick={e => { e.stopPropagation(); setLightbox({ images: p.gallery!, index: 0, title: p.title }); }}
+                      style={{
+                        display: "inline-flex", alignItems: "center", gap: 5,
+                        background: "none", border: "none", cursor: "pointer",
+                        fontFamily: "var(--font-mono)", fontSize: 13,
+                        color: "var(--color-accent)", padding: 0,
+                      }}
+                    >
+                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                        <rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/>
+                      </svg>
+                      Gallery ({p.gallery.length})
+                    </button>
+                  )}
                 </div>
               </div>
             </motion.article>
           ))}
         </div>
       </div>
+
+      {lightbox && (
+        <Lightbox
+          images={lightbox.images}
+          index={lightbox.index}
+          projectTitle={lightbox.title}
+          onClose={() => setLightbox(null)}
+          onPrev={() => setLightbox(lb => lb ? { ...lb, index: (lb.index - 1 + lb.images.length) % lb.images.length } : null)}
+          onNext={() => setLightbox(lb => lb ? { ...lb, index: (lb.index + 1) % lb.images.length } : null)}
+        />
+      )}
     </section>
   );
 }
