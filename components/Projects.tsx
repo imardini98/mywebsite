@@ -22,7 +22,7 @@ const PROJECTS = [
     desc: "Multi-agent AI architecture for room rental support automation. Custom AI evaluation framework optimizing token usage, handling 298 messages/day peak.",
     tags: ["Multi-agent AI", "WhatsApp API", "Next.js", "Claude"],
     grad: "linear-gradient(135deg, #0e4e5e 0%, #0a0a0f 60%)",
-    link: "https://domo-accommodation-website-imardini98s-projects.vercel.app",
+    link: "https://www.domoaccommodation.com/",
     github: "#",
     featured: false,
     gallery: Array.from({ length: 13 }, (_, i) => `/projects/domo/screenshot-${String(i + 1).padStart(2, "0")}.png`),
