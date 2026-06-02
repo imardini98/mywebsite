@@ -5,7 +5,7 @@ import { fadeUp, staggerContainer, VIEWPORT_ONCE } from "@/lib/motion";
 import {
   SiTypescript, SiPython, SiJavascript, SiPostgresql, SiGnubash,
   SiNextdotjs, SiReact, SiNestjs, SiFastapi, SiDjango, SiExpress, SiNodedotjs,
-  SiPytorch, SiTensorflow, SiHuggingface, SiOpenai,
+  SiPytorch, SiTensorflow, SiHuggingface, SiOpenai, SiGooglegemini, SiClaude,
   SiGooglecloud, SiTerraform,
   SiKubernetes, SiDocker, SiJenkins,
   SiMongodb, SiRedis, SiFirebase, SiPrisma,
@@ -48,6 +48,8 @@ const SKILLS: { group: string; items: Skill[] }[] = [
       { name: "TensorFlow", icon: SiTensorflow },
       { name: "HuggingFace", icon: SiHuggingface },
       { name: "OpenAI API", icon: SiOpenai },
+      { name: "Gemini API", icon: SiGooglegemini },
+      { name: "Claude API", icon: SiClaude },
     ],
   },
   {
