@@ -1,5 +1,6 @@
 "use client";
 
+import React from "react";
 import { motion } from "framer-motion";
 import { fadeUp, staggerContainer, VIEWPORT_ONCE } from "@/lib/motion";
 import {
@@ -12,10 +13,12 @@ import {
   SiGit, SiFigma, SiSalesforce,
 } from "react-icons/si";
 import { FaAws, FaMicrosoft } from "react-icons/fa";
+import { SiGithubcopilot } from "react-icons/si";
 import { TbBrandReactNative } from "react-icons/tb";
 import type { IconType } from "react-icons";
 
-type Skill = { name: string; icon: IconType };
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+type Skill = { name: string; icon: any };
 
 const SKILLS: { group: string; items: Skill[] }[] = [
   {
@@ -75,6 +78,23 @@ const SKILLS: { group: string; items: Skill[] }[] = [
       { name: "Salesforce", icon: SiSalesforce },
       { name: "Git", icon: SiGit },
       { name: "Figma", icon: SiFigma },
+    ],
+  },
+  {
+    group: "Agentic Coding",
+    items: [
+      { name: "Claude Code", icon: SiClaude },
+      { name: "Cursor", icon: () => (
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M3 3l9 18 2.5-7.5L22 11 3 3z"/>
+        </svg>
+      ) },
+      { name: "Copilot CLI", icon: SiGithubcopilot },
+      { name: "Antigravity", icon: () => (
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+          <path d="M12 2L8 8H2l5 4-2 7 7-4 7 4-2-7 5-4h-6L12 2z"/>
+        </svg>
+      ) },
     ],
   },
 ];
